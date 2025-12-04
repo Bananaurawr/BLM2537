@@ -1,122 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Menu - Macarooon</title>
-        <link rel="stylesheet" href="styles.css">
-        <link rel="icon" href="macarooon-logo-small.png" type="image/x-icon" width="100" height="100">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    </head>
-    <body>
-        <div class="title">
-            <a href="index_en.html" class="back-home"><span>← Back to Home</span></a>
-            
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu - Macarooon</title>
+
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="icon"
+      href="macarooon-logo-small.png"
+      type="image/x-icon"
+      width="100"
+      height="100"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div id="toast"></div>
+
+    <header class="title">
+      <a href="index_en.html" class="back-home">
+        <span>← Back to Home</span>
+      </a>
+      <img
+        src="macarooon-logo-small.png"
+        alt="Macarooon Logo"
+        class="small-logo"
+      />
+    </header>
+
+    <!-- HERO -->
+    <header class="menu-hero">
+      <div class="hero-inner">
+        <h1 class="menu-title">Our Menu</h1>
+        <p class="menu-sub">
+          Handcrafted macarons, cookies and cakes — fresh every day.
+        </p>
+      </div>
+    </header>
+
+    <!-- FILTER / CATEGORY BUTTONS -->
+    <nav class="menu-filter" aria-label="Menu categories">
+      <button class="filter-btn active" data-filter="all" type="button">
+        All
+      </button>
+      <button class="filter-btn" data-filter="macarons" type="button">
+        Macarons
+      </button>
+      <button class="filter-btn" data-filter="cookies" type="button">
+        Cookies
+      </button>
+      <button class="filter-btn" data-filter="cakes" type="button">
+        Cakes
+      </button>
+      <input
+        class="menu-search"
+        type="search"
+        placeholder="Search menu."
+        aria-label="Search menu"
+      />
+    </nav>
+
+    <!-- CATEGORY HIGHLIGHT BOXES -->
+    <section class="menu-categories">
+      <div class="category-card">
+        <img src="macarons-thumb.jpg" alt="Macarons" />
+        <h3>Macarons</h3>
+        <p>Delicate, colorful, and filled with seasonal flavors.</p>
+      </div>
+      <div class="category-card">
+        <img src="cookies-thumb.jpg" alt="Cookies" />
+        <h3>Cookies</h3>
+        <p>Crunchy edges, soft centers — every bite is perfect.</p>
+      </div>
+      <div class="category-card">
+        <img src="cakes-thumb.jpg" alt="Cakes" />
+        <h3>Cakes</h3>
+        <p>From single slices to show-stopping celebration cakes.</p>
+      </div>
+    </section>
+
+    <!-- MENU GRID -->
+    <main class="menu-grid" id="menuGrid" aria-live="polite">
+      <article class="menu-card" data-category="cookies">
+        <img src="Cookies.png" alt="Classic Chocolate Chip" />
+        <div class="card-body">
+            <h4>Classic Chocolate Chip</h4>
+            <p class="desc">Warm, gooey, loaded with chunks.</p>
+            <div class="card-footer">
+                <span class="price">₺120</span>
+                <div class="card-actions">
+                    <button class="details-btn">Details</button>
+                    <button class="add-to-cart"
+                            data-name="Classic Chocolate Chip" 
+                            data-price="45" 
+                            data-image="Cookies.png">
+                        <i class="fas fa-cart-plus"></i>
+                    </button>
+                </div>
+            </div>
         </div>
+      </article>
 
-        <!-- HERO -->
-        <header class="menu-hero">
-            <div class="hero-inner">
-                <h1 class="menu-title">Our Menu</h1>
-                <p class="menu-sub">Handcrafted macarons, cookies and cakes — fresh every day.</p>
-            </div>
-        </header>
-
-        <!-- FILTER / CATEGORY BUTTONS -->
-        <nav class="menu-filter" aria-label="menu categories">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="macarons">Macarons</button>
-            <button class="filter-btn" data-filter="cookies">Cookies</button>
-            <button class="filter-btn" data-filter="cakes">Cakes</button>
-            <input class="menu-search" type="search" placeholder="Search menu..." aria-label="search menu">
-        </nav>
-
-        <!-- CATEGORY HIGHLIGHT BOXES -->
-        <section class="menu-categories">
-            <div class="category-card">
-                <img src="macarons-thumb.jpg" alt="Macarons">
-                <h3>Macarons</h3>
-                <p>Delicate, colorful, and filled with seasonal flavors.</p>
-            </div>
-            <div class="category-card">
-                <img src="cookies-thumb.jpg" alt="Cookies">
-                <h3>Cookies</h3>
-                <p>Crunchy edges, soft centers — every bite is perfect.</p>
-            </div>
-            <div class="category-card">
-                <img src="cakes-thumb.jpg" alt="Cakes">
-                <h3>Cakes</h3>
-                <p>From single slices to show-stopping celebration cakes.</p>
-            </div>
-        </section>
-
-        <!-- MENU GRID -->
-        <main class="menu-grid" id="menuGrid" aria-live="polite">
-            <!-- example menu cards (repeat / populate as needed) -->
-            <article class="menu-card" data-category="cookies">
-                <img src="Cookies.png" alt="Classic Chocolate Chip">
-                <div class="card-body">
-                    <h4>Classic Chocolate Chip</h4>
-                    <p class="desc">Warm, gooey, loaded with chunks.</p>
-                    <div class="card-footer">
-                        <span class="price">₺45</span>
-                        <button class="details-btn" data-item="classic-chip">Details</button>
-                    </div>
-                </div>
-            </article>
-
-            <article class="menu-card" data-category="cookies">
-                <img src="Brownie_Batter_Cookie.png" alt="Brownie Batter">
-                <div class="card-body">
-                    <h4>Brownie Batter Cookie</h4>
-                    <p class="desc">Deep chocolate flavor, fudgy center.</p>
-                    <div class="card-footer">
-                        <span class="price">₺55</span>
-                        <button class="details-btn" data-item="brownie">Details</button>
-                    </div>
-                </div>
-            </article>
-
-            <article class="menu-card" data-category="cookies">
-                <img src="Matcha_Cookie.png" alt="Matcha Cookie">
-                <div class="card-body">
-                    <h4>Matcha Cookie</h4>
-                    <p class="desc">Lightly bitter matcha with white chocolate.</p>
-                    <div class="card-footer">
-                        <span class="price">₺50</span>
-                        <button class="details-btn" data-item="matcha">Details</button>
-                    </div>
-                </div>
-            </article>
-
-            <!-- add more cards -->
-        </main>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <p><i class="fas fa-envelope"></i> macarooondesert@gmail.com</p>
-                    <p><a href="https://wa.me/905376739769" target="_blank" class="whatsapp-link">
-                        <i class="fab fa-whatsapp"></i> +90 537 673 9769
-                    </a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>Visit Us</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Kızılırmak Mahallesi</p>
-                    <p>Dumlupınar Bulvarı No: 42</p>
-                    <p>Çankaya, Ankara 06520</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Hours</h3>
-                    <p>Monday - Friday: 8:00 - 20:00</p>
-                    <p>Saturday - Sunday: 9:00 - 21:00</p>
+      <article class="menu-card" data-category="macarons">
+        <img src="banana-macaron.png" alt="Banana Macaron" />
+        <div class="card-body">
+            <h4>Banana Macaron</h4>
+            <p class="desc">Lightly bitter matcha with white chocolate.</p>
+            <div class="card-footer">
+                <span class="price">₺40</span>
+                <div class="card-actions">
+                    <button class="details-btn">Details</button>
+                    <button class="add-to-cart"
+                            data-name="Banana Macaron" 
+                            data-price="40" 
+                            data-image="banana-macaron.png">
+                        <i class="fas fa-cart-plus"></i>
+                    </button>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Macarooon. All rights reserved.</p>
+        </div>
+      </article>
+
+      <article class="menu-card" data-category="cookies">
+        <img src="Brownie_Batter_Cookie.png" alt="Brownie Batter" />
+        <div class="card-body">
+            <h4>Brownie Batter Cookie</h4>
+            <p class="desc">Deep chocolate flavor, fudgy center.</p>
+            <div class="card-footer">
+                <span class="price">₺155</span>
+                <div class="card-actions">
+                    <button class="details-btn">Details</button>
+                    <button class="add-to-cart"
+                            data-name="Brownie Batter Cookie" 
+                            data-price="155" 
+                            data-image="Brownie_Batter_Cookie.png">
+                        <i class="fas fa-cart-plus"></i>
+                    </button>
+                </div>
             </div>
-        </footer>
-    </body>
+        </div>
+      </article>
+
+      <article class="menu-card" data-category="cookies">
+        <img src="matcha-cookie.png" alt="Matcha Cookie" />
+        <div class="card-body">
+            <h4>Matcha Cookie</h4>
+            <p class="desc">Lightly bitter matcha with white chocolate.</p>
+            <div class="card-footer">
+                <span class="price">₺150</span>
+                <div class="card-actions">
+                    <button class="details-btn">Details</button>
+                    <button class="add-to-cart"
+                            data-name="Matcha Cookie" 
+                            data-price="150" 
+                            data-image="matcha-cookie.png">
+                        <i class="fas fa-cart-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+      </article>
+
+      <article class="menu-card" data-category="cakes">
+        <img src="tiramisu.png" alt="Original Tiramisu" />
+        <div class="card-body">
+            <h4>Original Tiramisu</h4>
+            <p class="desc">The classic Italian dessert with layers of mascarpone and coffee-soaked ladyfingers topped of with strawberry.</p>
+            <div class="card-footer">
+                <span class="price">₺175</span>
+                <div class="card-actions">
+                    <button class="details-btn">Details</button>
+                    <button class="add-to-cart"
+                            data-name="Original Tiramisu" 
+                            data-price="175" 
+                            data-image="tiramisu.png">
+                        <i class="fas fa-cart-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+      </article>
+
+      <article class="menu-card" data-category="macarons">
+        <img src="cherry-macaron.png" alt="Cherry Macaron" />
+        <div class="card-body">
+            <p id="seasonal">🌲 Christmas Special</p>
+            <h4>Cherry Macaron</h4>
+            <p class="desc">Our signature macaron with delightful cherry flavor. Only available during the holiday season.</p>
+            <div class="card-footer">
+                <span class="price">₺65</span>
+                <div class="card-actions">
+                    <button class="details-btn">Details</button>
+                    <button class="add-to-cart"
+                            data-name="Cherry Macaron" 
+                            data-price="65" 
+                            data-image="cherry-macaron.png">
+                        <i class="fas fa-cart-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+      </article>
+
+      <article class="menu-card" data-category="cakes">
+        <img src="strawberry-cheesecake.png" alt="Strawberry Cheesecake" />
+        <div class="card-body">
+            <p id="seasonal">🌲 Christmas Special</p>
+            <h4>Strawberry Cheesecake</h4>
+            <p class="desc">Our signature macaron with delightful cherry flavor. Only available during the holiday season.</p>
+            <div class="card-footer">
+                <span class="price">₺200</span>
+                <div class="card-actions">
+                    <button class="details-btn">Details</button>
+                    <button class="add-to-cart"
+                            data-name="Strawberry Cheesecake" 
+                            data-price="200" 
+                            data-image="strawberry-cheesecake.png">
+                        <i class="fas fa-cart-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+      </article>
+
+      <article class="menu-card" data-category="macarons">
+        <img src="strawberry-special.png" alt="Strawberry Macaron" />
+        <div class="card-body">
+            <p id="seasonal">🌲 Christmas Special</p>
+            <h4>Strawberry Christmas Macaron</h4>
+            <p class="desc">Signature macaron filled with strawberry cream and pieces. Only available during the holiday season.</p>
+            <div class="card-footer">
+                <span class="price">₺65</span>
+                <div class="card-actions">
+                    <button class="details-btn">Details</button>
+                    <button class="add-to-cart"><i class="fas fa-cart-plus"></i></button>
+                </div>
+            </div>
+        </div>
+      </article>
+
+      <article class="menu-card" data-category="cakes">
+        <img src="Cakes.png" alt="Matcha Tiramisu" />
+        <div class="card-body">
+            <h4>Matcha Tiramisu</h4>
+            <p class="desc">Lightly bitter matcha with white chocolate.</p>
+            <div class="card-footer">
+                <span class="price">₺180</span>
+                <div class="card-actions">
+                    <button class="details-btn">Details</button>
+                    <button class="add-to-cart"><i class="fas fa-cart-plus"></i></button>
+                </div>
+            </div>
+        </div>
+      </article>
+
+      <article class="menu-card" data-category="macarons">
+        <img src="redvelvet-macaron.png" alt="Red Velvet Macaron" />
+        <div class="card-body">
+            <h4>Red Velvet Macaron</h4>
+            <p class="desc">Lightly bitter matcha with white chocolate.</p>
+            <div class="card-footer">
+                <span class="price">₺40</span>
+                <div class="card-actions">
+                    <button class="details-btn">Details</button>
+                    <button class="add-to-cart"><i class="fas fa-cart-plus"></i></button>
+                </div>
+            </div>
+        </div>
+      </article>
+
+      <article class="menu-card" data-category="macarons">
+        <img src="macaron.png" alt="Chocolate Macaron" />
+        <div class="card-body">
+            <h4>Chocolate Macaron</h4>
+            <p class="desc">Lightly bitter matcha with white chocolate.</p>
+            <div class="card-footer">
+                <span class="price">₺40</span>
+                <div class="card-actions">
+                    <button class="details-btn">Details</button>
+                    <button class="add-to-cart"><i class="fas fa-cart-plus"></i></button>
+                </div>
+            </div>
+        </div>
+      </article>
+
+      <!-- add more cards -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p><i class="fas fa-envelope"></i> macarooondesert@gmail.com</p>
+          <p>
+            <a
+              href="https://wa.me/905376739769"
+              target="_blank"
+              class="whatsapp-link"
+            >
+              <i class="fab fa-whatsapp"></i> +90 537 673 9769
+            </a>
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Visit Us</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Kızılırmak Mahallesi</p>
+          <p>Dumlupınar Bulvarı No: 42</p>
+          <p>Çankaya, Ankara 06520</p>
+        </div>
+        <div class="footer-section">
+          <h3>Hours</h3>
+          <p>Monday - Friday: 8:00 - 20:00</p>
+          <p>Saturday - Sunday: 9:00 - 21:00</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Macarooon. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script_menu.js"></script>
+  </body>
 </html>
