@@ -88,3 +88,12 @@ btn.addEventListener("click", () => {
 });
 });
 })();
+
+
+// GO TO THE CART PAGEEEEEEAAA AAAAA
+const goToCart = document.getElementById('go-to-cart');
+if (goToCart) {
+    goToCart.addEventListener('click', () => {
+    window.location.href = 'cart_en.html';
+});
+}
