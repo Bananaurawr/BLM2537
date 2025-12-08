@@ -406,103 +406,68 @@ button {
    Product Baskets (cookies / macarons / cakes)
    ========================= */
 
-.cookie-basket,
-.macaron-basket,
-.cake-basket {
+.slideshow-container {
+  display: none; /* hidden by default */
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.35);
-  display: none;
-  align-items: center;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  padding: 2rem;
+  z-index: 2000;
   justify-content: center;
-  z-index: 1200;
-  padding: 1.5rem;
-  background: rgba(0, 0, 0, 0.35);
+  align-items: center;
 }
 
-.cookie-basket.active,
-.macaron-basket.active,
-.cake-basket.active {
+.slideshow-container.active {
   display: flex;
 }
 
-.cookie-basket > img#plate {
-  max-width: 320px;
-  width: 70vw;
-  height: auto;
-}
-
-/* Cookie slider items */
-
-.cookie-slider {
-  position: absolute;
-  max-width: 260px;
-  width: 65vw;
-  text-align: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -52%);
-  display: none;
-}
-
-.cookie-slider img#food-on-plate {
-  max-height: 160px;
-  margin: 0 auto 0.75rem;
-  object-fit: contain;
-}
-
-.cookie-slider h3 {
-  font-family: 'pangolin', cursive;
-  font-size: 1rem;
-  color: var(--text-strong);
-}
-
-.cookie-slider.active {
-  display: block;
-}
-
-/* Slider navigation buttons */
-
-.cookie-prev,
-.cookie-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 2.2rem;
-  height: 2.2rem;
-  border-radius: 999px;
-  background-color: var(--bg-card);
-  color: var(--text-strong);
-  font-size: 1.4rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.slideshow {
+  position: relative;
+  width: 70%;
+  max-width: 700px;
+  overflow: hidden;
+  border-radius: var(--radius-large);
   box-shadow: var(--shadow-soft);
 }
 
-.cookie-prev {
-  left: 12%;
+.slide {
+  display: none;
 }
 
-.cookie-next {
-  right: 12%;
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-large);
 }
 
-/* Close buttons inside baskets (inline style coordinates kept) */
-
-.cookie-basket button[id^="close"],
-.macaron-basket button[id^="close"],
-.cake-basket button[id^="close"] {
-  background: transparent;
-  color: var(--bg-card);
-  font-size: 1.4rem;
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--accent);
+  border: none;
+  padding: 0.2rem 1rem 0.2rem;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  color: white;
+  cursor: pointer;
+  z-index: 2100;
 }
 
-/* Macaron and cake baskets can be styled later; for now center content */
+.slide-btn.prev { left: 10%; }
+.slide-btn.next { right: 10%; }
 
-.macaron-basket,
-.cake-basket {
-  align-items: flex-start;
+.close-slideshow {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
 }
 
 /* =========================
@@ -1161,4 +1126,106 @@ button {
 
 .checkout-btn:hover {
   background: var(--accent);
+}
+
+.qty-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.qty-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--accent);
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.item-subtotal {
+  font-weight: bold;
+  text-align: right;
+}
+
+/* container holding meta on left and controls on right */
+.cart-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+}
+
+/* left/meta block */
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* right controls stacked and right-aligned */
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  min-width: 120px; /* adjust as needed */
+}
+
+/* remove button aligned right */
+.remove-btn {
+  background: transparent;
+  border: 1px solid rgba(84,54,24,0.12);
+  padding: 6px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* keep subtotal right-aligned too */
+.item-subtotal {
+  font-weight: bold;
+  color: var(--text-strong);
+  text-align: right;
+}
+
+/* responsive tweak: stack controls under meta on small screens */
+@media (max-width: 520px) {
+  .cart-main {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .controls {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.cart-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+}
+
+#cartCount {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 20px;
+  height: 20px;
+  background: #543618;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  pointer-events: none;
 }

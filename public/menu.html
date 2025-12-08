@@ -22,7 +22,7 @@
     <div id="toast"></div>
 
     <header class="title">
-      <a href="index_en.html" class="back-home">
+      <a href="index.html" class="back-home">
         <span>← Back to Home</span>
       </a>
       <div class="title-right">
@@ -31,7 +31,10 @@
         alt="Macarooon Logo"
         class="small-logo"
         />
-        <a id="go-to-cart" href="cart_en.html" class="cart-link"><i class="fa-solid fa-cart-shopping"></i></a>
+        <a id="go-to-cart" href="cart_en.html" class="cart-link">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span id="cartCount">0</span>
+        </a>
       </div>
     </header>
 
@@ -66,25 +69,6 @@
         aria-label="Search menu"
       />
     </nav>
-
-    <!-- CATEGORY HIGHLIGHT BOXES -->
-    <section class="menu-categories">
-      <div class="category-card">
-        <img src="macarons-thumb.jpg" alt="Macarons" />
-        <h3>Macarons</h3>
-        <p>Delicate, colorful, and filled with seasonal flavors.</p>
-      </div>
-      <div class="category-card">
-        <img src="cookies-thumb.jpg" alt="Cookies" />
-        <h3>Cookies</h3>
-        <p>Crunchy edges, soft centers — every bite is perfect.</p>
-      </div>
-      <div class="category-card">
-        <img src="cakes-thumb.jpg" alt="Cakes" />
-        <h3>Cakes</h3>
-        <p>From single slices to show-stopping celebration cakes.</p>
-      </div>
-    </section>
 
     <!-- MENU GRID -->
     <main class="menu-grid" id="menuGrid" aria-live="polite">

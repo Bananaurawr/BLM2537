@@ -69,7 +69,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar" aria-label="Main navigation">
       <a href="menu.html" id="menu">Menu</a>
-      <a href="about-us.html" id="about">About Us</a>
+      <a href="#about-us" id="about">About Us</a>
       <a href="#contact-info" id="contact">Contact</a>
     </nav>
 
@@ -90,104 +90,71 @@
     <!-- Main Menu Section -->
     <div class="separator"></div>
     <section id="main-menu" aria-labelledby="sweet-treats-heading">
-      <h1 id="sweet-treats-heading" class="sweet-treats">Sweet Treats</h1>
+        <h1 id="sweet-treats-heading" class="sweet-treats">Sweet Treats</h1>
 
-      <div class="menu-boxes">
-        <button class="menu-box" id="cookie" type="button">
-          <p>Cookies</p>
-          <img src="Cookies.png" alt="Cookies Icon" />
-        </button>
-
-        <button class="menu-box" id="macaron" type="button">
-            <p>Macarons</p>
-            <img src="macaron.png" alt="Macarons Icon" />
-        </button>
-
-        <button class="menu-box" id="cake" type="button">
-          <p>Cakes</p>
-          <img src="Cakes.png" alt="Cakes Icon" />
-        </button>
-
-        <!-- Cookie basket / slider -->
-        <div class="cookie-basket">
-          <img src="plate.png" id="plate" alt="Plate" />
-
-          <div class="cookie-slider active">
-            <img
-              src="Brownie_Batter_Cookie.png"
-              id="food-on-plate"
-              alt="Brownie Batter Cookie"
-            />
-            <h3>Brownie Batter Cookie</h3>
-          </div>
-
-          <div class="cookie-slider">
-            <img
-              src="Cookies.png"
-              id="food-on-plate"
-              alt="Classic Chocolate Chip"
-            />
-            <h3>Classic Chocolate Chip</h3>
-          </div>
-
-          <div class="cookie-slider">
-            <img
-              src="matcha-cookie.png"
-              id="food-on-plate"
-              alt="Matcha Plain Cookie"
-            />
-            <h3>Matcha Plain Cookie</h3>
-          </div>
-
-          <button
-            type="button"
-            class="cookie-prev nav-button"
-            aria-label="Previous cookie"
-          >
-            ‹
-          </button>
-          <button
-            type="button"
-            class="cookie-next nav-button"
-            aria-label="Next cookie"
-          >
-            ›
+        <!-- Menu Boxes -->
+        <div class="menu-boxes">
+          <button class="menu-box" id="cookie" type="button">
+            <p>Cookies</p>
+            <img src="Cookies.png" alt="Cookies Icon" />
           </button>
 
-          <button
-            type="button"
-            id="closeCookieBasket"
-            style="position: absolute; top: 16px; right: 24px"
-            aria-label="Close cookies"
-          >
-            ✕
+          <button class="menu-box" id="macaron" type="button">
+              <p>Macarons</p>
+              <img src="macaron.png" alt="Macarons Icon" />
+          </button>
+
+          <button class="menu-box" id="cake" type="button">
+            <p>Cakes</p>
+            <img src="Cakes.png" alt="Cakes Icon" />
           </button>
         </div>
 
-        <div class="macaron-basket">
-          <button
-            type="button"
-            id="closeMacaronBasket"
-            style="position: absolute; top: 16px; right: 24px"
-            aria-label="Close macarons"
-          >
-            ✕
-          </button>
+        <!-- COOKIE SLIDESHOW -->
+        <div class="slideshow-container" id="cookie-slideshow">
+          <button class="close-slideshow">✕</button>
+
+          <div class="slideshow">
+            <div class="slide"><img src="bakery.jpg" alt="Cookie Photo 1"></div>
+            <div class="slide"><img src="cookie2.jpg" alt="Cookie Photo 2"></div>
+            <div class="slide"><img src="cookie3.jpg" alt="Cookie Photo 3"></div>
+          </div>
+
+          <button class="slide-btn prev">‹</button>
+          <button class="slide-btn next">›</button>
         </div>
 
-        <div class="cake-basket">
-          <button
-            type="button"
-            id="closeCakeBasket"
-            style="position: absolute; top: 16px; right: 24px"
-            aria-label="Close cakes"
-          >
-            ✕
-          </button>
+        <!-- MACARON SLIDESHOW -->
+        <div class="slideshow-container" id="macaron-slideshow">
+          <button class="close-slideshow">✕</button>
+
+          <div class="slideshow">
+            <div class="slide"><img src="bakery2.svg" alt="Macaron Photo 1"></div>
+            <div class="slide"><img src="macaron2.jpg" alt="Macaron Photo 2"></div>
+            <div class="slide"><img src="macaron3.jpg" alt="Macaron Photo 3"></div>
+          </div>
+
+          <button class="slide-btn prev">‹</button>
+          <button class="slide-btn next">›</button>
         </div>
-      </div>
+
+        <!-- CAKE SLIDESHOW -->
+        <div class="slideshow-container" id="cake-slideshow">
+          <button class="close-slideshow">✕</button>
+
+          <div class="slideshow">
+            <div class="slide"><img src="bakery.jpg" alt="Cake Photo 1"></div>
+            <div class="slide"><img src="cake2.jpg" alt="Cake Photo 2"></div>
+            <div class="slide"><img src="cake3.jpg" alt="Cake Photo 3"></div>
+          </div>
+
+          <button class="slide-btn prev">‹</button>
+          <button class="slide-btn next">›</button>
+        </div>
     </section>
     <div class="separator"></div>
+
+    
     <!-- About Us Section -->
     <section id="about-us">
       <div class="about-us-container">
