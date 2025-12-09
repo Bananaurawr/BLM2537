@@ -55,8 +55,8 @@
 
     <!-- Title Section -->
     <header class="title">
-      <a href="index_en.html">
-        <img class="logo" src="logo1.svg" alt="Macarooon Logo" />
+      <a href="index.html">
+        <img class="logo" src="logo1.svg" alt="Macarooon Logo"/>
         <h3>Your one-stop shop for delicious baked goods</h3>
       </a>
       <ul class="language-switcher">
@@ -68,7 +68,15 @@
 
     <!-- Navigation Bar -->
     <nav class="navbar" aria-label="Main navigation">
-      <a href="menu.html" id="menu">Menu</a>
+      <div class="dropdown">
+        <button class="dropbtn"><a href="menu.html">Menu ▾</a></button>
+        <div class="dropdown-content">
+          <a href="menu.html?filter=cookies">Cookies</a>
+          <a href="menu.html?filter=macarons">Macarons</a>
+          <a href="menu.html?filter=cakes">Cakes</a>
+        </div>
+      </div>
+
       <a href="#about-us" id="about">About Us</a>
       <a href="#contact-info" id="contact">Contact</a>
     </nav>
@@ -82,79 +90,40 @@
 
     <!-- Hidden Mini Navbar -->
     <nav id="miniNav" class="mini-nav hidden" aria-label="Quick navigation">
-      <a href="#main-menu">Menu</a>
+      <a href="menu.html">Menu</a>
       <a href="#about-us">About Us</a>
       <a href="#contact-info">Reservation</a>
     </nav>
 
+  
     <!-- Main Menu Section -->
     <div class="separator"></div>
-    <section id="main-menu" aria-labelledby="sweet-treats-heading">
-        <h1 id="sweet-treats-heading" class="sweet-treats">Sweet Treats</h1>
-
-        <!-- Menu Boxes -->
-        <div class="menu-boxes">
-          <button class="menu-box" id="cookie" type="button">
+    <section id="main-menu">
+      <h1 class="sweet-treats">Sweet Treats</h1>
+      <p class="tagline">From the oven served to your plates, with love</p>
+      <div class="menu-boxes">
+          <div class="menu-box gallery-item" data-full="cookie-large.jpeg">
             <p>Cookies</p>
-            <img src="Cookies.png" alt="Cookies Icon" />
-          </button>
-
-          <button class="menu-box" id="macaron" type="button">
-              <p>Macarons</p>
-              <img src="macaron.png" alt="Macarons Icon" />
-          </button>
-
-          <button class="menu-box" id="cake" type="button">
+            <img src="Cookies.png" alt="Cookies" />
+          </div>
+          <div class="menu-box gallery-item" data-full="macaroon-large.jpeg">
+            <p>Macaroons</p>
+            <img src="macaron.png" alt="Macaroons" />
+          </div>
+          <div class="menu-box gallery-item" data-full="cake-large.jpeg">
             <p>Cakes</p>
-            <img src="Cakes.png" alt="Cakes Icon" />
-          </button>
-        </div>
-
-        <!-- COOKIE SLIDESHOW -->
-        <div class="slideshow-container" id="cookie-slideshow">
-          <button class="close-slideshow">✕</button>
-
-          <div class="slideshow">
-            <div class="slide"><img src="bakery.jpg" alt="Cookie Photo 1"></div>
-            <div class="slide"><img src="cookie2.jpg" alt="Cookie Photo 2"></div>
-            <div class="slide"><img src="cookie3.jpg" alt="Cookie Photo 3"></div>
+            <img src="Cakes.png" alt="Cakes" />
           </div>
+      </div>
 
-          <button class="slide-btn prev">‹</button>
-          <button class="slide-btn next">›</button>
-        </div>
-
-        <!-- MACARON SLIDESHOW -->
-        <div class="slideshow-container" id="macaron-slideshow">
-          <button class="close-slideshow">✕</button>
-
-          <div class="slideshow">
-            <div class="slide"><img src="bakery2.svg" alt="Macaron Photo 1"></div>
-            <div class="slide"><img src="macaron2.jpg" alt="Macaron Photo 2"></div>
-            <div class="slide"><img src="macaron3.jpg" alt="Macaron Photo 3"></div>
-          </div>
-
-          <button class="slide-btn prev">‹</button>
-          <button class="slide-btn next">›</button>
-        </div>
-
-        <!-- CAKE SLIDESHOW -->
-        <div class="slideshow-container" id="cake-slideshow">
-          <button class="close-slideshow">✕</button>
-
-          <div class="slideshow">
-            <div class="slide"><img src="bakery.jpg" alt="Cake Photo 1"></div>
-            <div class="slide"><img src="cake2.jpg" alt="Cake Photo 2"></div>
-            <div class="slide"><img src="cake3.jpg" alt="Cake Photo 3"></div>
-          </div>
-
-          <button class="slide-btn prev">‹</button>
-          <button class="slide-btn next">›</button>
-        </div>
+      <!-- Lightbox Modal -->
+      <div id="lightbox" class="lightbox hidden">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Zoomed treat"/>
+      </div>
     </section>
-    <div class="separator"></div>
-
     
+    <div class="separator"></div>
     <!-- About Us Section -->
     <section id="about-us">
       <div class="about-us-container">
@@ -174,6 +143,41 @@
             alt="Bakery team illustration"
             class="about-us-img"
           />
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section id="testimonials" class="testimonial-section">
+      <h2 class="sweet-treats">What our customers think?</h2>
+      <div class="testimonial-boxes">
+        <div class="testimonial">
+          <p class="testimonial-text">"These were the best macarons I've ever had! Highly recommend."</p>
+          <span class="testimonial-name">- Zeynep C.</span>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-text">"The cakes were visually stunning and delicious. Perfect for special occasions."</p>
+          <span class="testimonial-name">- Elif E.</span>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-text">"Very kind service and fresh desserts. I will come again."</p>
+          <span class="testimonial-name">- Tuğba A.</span>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+          <span class="testimonial-name">- Necati T.</span>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+          <span class="testimonial-name">- Damla A.</span>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+          <span class="testimonial-name">- Çiğdem B.</span>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+          <span class="testimonial-name">- Sena G.</span>
         </div>
       </div>
     </section>
@@ -266,6 +270,26 @@
           // keep your existing geoIpLookup or remove if not needed
         });
       }
+
+      document.querySelectorAll('.gallery-item').forEach(box => {
+      box.addEventListener('click', () => {
+        const imgSrc = box.getAttribute('data-full');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        lightboxImg.src = imgSrc;
+        lightbox.classList.remove('hidden');
+      });
+    });
+
+      document.querySelector('.close-lightbox').addEventListener('click', () => {
+        document.getElementById('lightbox').classList.add('hidden');
+      });
+
+      document.getElementById('lightbox').addEventListener('click', e => {
+        if (e.target.id === 'lightbox') {
+          e.target.classList.add('hidden');
+        }
+      });
     </script>
   </body>
 </html>

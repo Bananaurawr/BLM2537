@@ -11,26 +11,33 @@
     </head>
     <body>
         <div class="top-banner">
-            <span class="banner-text"> Freshly Baked Everyday&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Same day deliveries on orders over ₺1000 between 09:00 AM and 12:00 PM </span>
+            <span class="banner-text"> Taze Günlük Pişmiş&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;09:00 - 12:00 saatleri arasında ₺1000 üzeri siparişlerde aynı gün teslimat </span>
         </div>
 
         <!-- Title Section -->
         <div class="title">
-            <a href="index_en.html">
-                <img class="logo" src="logo1.svg" alt="Logo" width="25%">
+            <a href="index_tr.html">
+                <img class="logo" src="logo1.svg" alt="Logo">
                 <h3>Your one-stop shop for delicious baked goods</h3>
             </a>
             <ul class="language-switcher">
                 <li><a class="language-switcher current">TR</a></li>
                 <li> | </li>
-                <li><a href="index_en.html">EN</a></li>
+                <li><a href="index.html">EN</a></li>
             </ul>
         </div>
 
         <!-- Navigation Bar -->
         <nav class="navbar">
-            <a href="menu.html" id="menu">Menü</a>
-            <a href="about-us-tr.html" id="about">Hakkımızda</a>
+            <div class="dropdown">
+                <button class="dropbtn"><a href="menu_tr.html">Menü ▾</a></button>
+                <div class="dropdown-content">
+                    <a href="menu_tr.html?filter=cookies">Kurabiyeler</a>
+                    <a href="menu_tr.html?filter=macarons">Macaronlar</a>
+                    <a href="menu_tr.html?filter=cakes">Pastalar</a>
+                </div>
+            </div>
+            <a href="#about-us" id="about">Hakkımızda</a>
             <a href="#contact-info" id="contact">İletişim</a>
         </nav>
         <img class="main-image" src="bakery.jpg" alt="Smell the deliciousness" width="90%" height="50%">
@@ -40,7 +47,7 @@
 
         <!-- Hidden Mini Navbar -->
         <div id="miniNav" class="mini-nav hidden">
-        <a href="menu.html">Menü</a>        
+        <a href="menu_tr.html">Menü</a>        
         <a href="about-us-tr.html">Hakkımızda</a>
         <a href="#contact-info">İletişim</a>
         </div>
@@ -48,32 +55,31 @@
 
         <!-- Main Menu Section -->
         <div class="separator"></div>
-        <div id="main-menu">
-            <h1 class="sweet-treats">Tatlılar</h1>
+        <section id="main-menu">
+            <h1 class="sweet-treats">Tatlı Lezzetler</h1>
+            <p class="tagline">Fırından tabaklarınıza, sevgiyle servis edilir</p>
             <div class="menu-boxes">
-                <div class="menu-box" id="cookie">
+                <div class="menu-box gallery-item" data-full="cookie-large.jpeg">
                     <p>Kurabiyeler</p>
-                    <img src="Cookies.png" alt="Cookies Icon">
+                    <img src="Cookies.png" alt="Kurabiyeler" />
                 </div>
-                <div class="menu-box" id="macaron">
+                <div class="menu-box gallery-item" data-full="macaroon-large.jpeg">
                     <p>Macaronlar</p>
-                    <img src="macaron.png" alt="Macarons Icon">
+                    <img src="macaron.png" alt="Macaronlar" />
                 </div>
-                <div class="menu-box" id="cake">
+                <div class="menu-box gallery-item" data-full="cake-large.jpeg">
                     <p>Pastalar</p>
-                    <img src="Cakes.png" width="100%" alt="Cakes Icon">
-                </div>
-                <div class="cookie-basket">
-                    <button id="closeCookieBasket" style="position:absolute;top:16px;right:24px;">✕</button>
-                </div>
-                <div class="macaron-basket">
-                    <button id="closeMacaronBasket" style="position:absolute;top:16px;right:24px;">✕</button>
-                </div>
-                <div class="cake-basket">
-                    <button id="closeCakeBasket" style="position:absolute;top:16px;right:24px;">✕</button>
+                    <img src="Cakes.png" alt="Pastalar" />
                 </div>
             </div>
-        </div>
+
+            <!-- Lightbox Modal -->
+            <div id="lightbox" class="lightbox hidden">
+                <span class="close-lightbox">&times;</span>
+                <img class="lightbox-content" id="lightbox-img" alt="Zoomed treat"/>
+            </div>
+        </section>
+
         <div class="separator"></div>
 
         <!-- About Us Section -->
@@ -81,17 +87,47 @@
             <div class="about-us-container">
                 <div class="about-us-left">
                     <h1 class="about-us-title">Hoş Geldiniz!</h1>
-                    <img src="underline3.svg" class="underline2" width="30%">
                     <p class="about-us-text">
                         Ankara merkezli olarak, 2024 yılından beri taze pişmiş ürünler sunmaktayız. Macaronlar ile başladık ve o zamandan beri menümüzü genişlettik. Online siparişler ve catering hizmetleri sunmaktayız.
                     </p>
-                    <a href="about-us.html" class="learn-more-btn">Daha Fazla</a>
+                    <a href="about-us-tr.html" class="learn-more-btn">Daha Fazla</a>
                 </div>
                 <div class="about-us-right">
                     <img src="bakery2.svg" alt="Bakery Team" class="about-us-img">
                 </div>
             </div>
         </div>
+
+        <!-- Testimonial -->
+        <section id="testimonials" class="testimonial-section">
+            <h2 class="sweet-treats">Müşterilerimiz Ne Diyor?</h2>
+            <div class="testimonial-boxes">
+                <div class="testimonial">
+                <p class="testimonial-text">"Hayatımda yediğim en güzel macaronlardı! Şiddetle tavsiye ederim."</p>
+                <span class="testimonial-name">- Zeynep C.</span>
+                </div>
+                <div class="testimonial">
+                <p class="testimonial-text">"Kekler hem görsel olarak harikaydı hem de lezzetliydi. Özel günler için birebir."</p>
+                <span class="testimonial-name">- Elif E.</span>
+                </div>
+                <div class="testimonial">
+                <p class="testimonial-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+                <span class="testimonial-name">- Necati T.</span>
+                </div>
+                <div class="testimonial">
+                <p class="testimonial-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+                <span class="testimonial-name">- Damla A.</span>
+                </div>
+                <div class="testimonial">
+                <p class="testimonial-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+                <span class="testimonial-name">- Çiğdem B.</span>
+                </div>
+                <div class="testimonial">
+                <p class="testimonial-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+                <span class="testimonial-name">- Sena G.</span>
+                </div>
+            </div>
+        </section>
 
         <!-- Contact Section -->
         <div id="contact-info">
@@ -157,6 +193,26 @@
                 },
                 utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.9/build/js/utils.js", // Formatting the number to automatically show flag + select country code
             }); 
+
+            document.querySelectorAll('.gallery-item').forEach(box => {
+            box.addEventListener('click', () => {
+                const imgSrc = box.getAttribute('data-full');
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImg = document.getElementById('lightbox-img');
+                lightboxImg.src = imgSrc;
+                lightbox.classList.remove('hidden');
+            });
+            });
+
+            document.querySelector('.close-lightbox').addEventListener('click', () => {
+                document.getElementById('lightbox').classList.add('hidden');
+            });
+
+            document.getElementById('lightbox').addEventListener('click', e => {
+                if (e.target.id === 'lightbox') {
+                e.target.classList.add('hidden');
+                }
+            });
         </script>
 
     </body>

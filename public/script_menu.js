@@ -1,4 +1,15 @@
+// Auto-apply filter from URL (menu.html?filter=cookies)
+  document.addEventListener("DOMContentLoaded", () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const initialFilter = urlParams.get("filter");
 
+  if (initialFilter) {
+    const button = document.querySelector(`.filter-btn[data-filter="${initialFilter}"]`);
+    if (button) button.click();
+  }
+});
+
+      
 // Script for filtering menu items based on category
 const filterButtons = document.querySelectorAll(".filter-btn");
 const menuCards = document.querySelectorAll(".menu-card");
@@ -38,7 +49,6 @@ searchInput.addEventListener("input", () => {
     const title = card.querySelector("h4").textContent.toLowerCase();
     const category = card.dataset.category;
 
-    // conditions:
     const matchesSearch = title.includes(query);
     const matchesCategory = activeFilter === "all" || activeFilter === category;
 
@@ -58,36 +68,37 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }
 
-// ADD TO CART
-function showToast(msg) {
-  const toast = document.getElementById("toast");
-  toast.textContent = msg;
-  toast.classList.add("show");
-  setTimeout(() => toast.classList.remove("show"), 1500);
-}
+  // ADD TO CART
+  function showToast(msg) {
+    const toast = document.getElementById("toast");
+    toast.textContent = msg;
+    toast.classList.add("show");
+    setTimeout(() => toast.classList.remove("show"), 1500);
+  }
 
-document.querySelectorAll(".add-to-cart").forEach(btn => {
-btn.addEventListener("click", () => {
-    const item = {
-    name: btn.dataset.name,
-    price: Number(btn.dataset.price),
-    image: btn.dataset.image,
-    quantity: 1
-    };
+    document.querySelectorAll(".add-to-cart").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const item = {
+        name: btn.dataset.name,
+        price: Number(btn.dataset.price),
+        image: btn.dataset.image,
+        quantity: 1
+        };
 
-    // if already exis then only increase quantity
-    const existing = cart.find(p => p.name === item.name);
-    if (existing) {
-    existing.quantity++;
-    } else {
-    cart.push(item);
-    }
+        // if the ıtem exis then only increase quantity
+        const existing = cart.find(p => p.name === item.name);
+        if (existing) {
+        existing.quantity++;
+        } else {
+        cart.push(item);
+        }
 
-    saveCart();
-    showToast(item.name + " added to cart!");
+        saveCart();
+        showToast(item.name + " added to cart!");
+        updateCartBadge();
+    });
+    });
 });
-});
-})();
 
 
 // GO TO THE CART PAGEEEEEEAAA AAAAA
@@ -98,6 +109,8 @@ if (goToCart) {
 });
 }
 
+// Function doesnt work yet so im working on it
+// THis is supossed to count how many items are in the cart and display in menu
 (function() {
   const CART_KEYS = ['macaroons_cart_v1', 'cart', 'cart_items'];
 
