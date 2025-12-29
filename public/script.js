@@ -65,20 +65,3 @@ document.querySelectorAll('.close-slideshow').forEach(btn => {
     btn.closest('.slideshow-container').classList.remove('active');
   });
 });
-
-// Slideshow navigation (prev/next inside each slideshow)
-document.querySelectorAll('.slideshow-container').forEach(container => {
-  const slides = container.querySelectorAll('.slide');
-  let current = 0;
-
-  const showSlide = (n) => {
-    slides.forEach(s => s.style.display = 'none');
-    current = (n + slides.length) % slides.length;
-    slides[current].style.display = 'block';
-  };
-
-  container.querySelector('.slide-btn.prev')?.addEventListener('click', () => showSlide(current - 1));
-  container.querySelector('.slide-btn.next')?.addEventListener('click', () => showSlide(current + 1));
-
-  showSlide(0); // init
-});

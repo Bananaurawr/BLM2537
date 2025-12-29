@@ -100,7 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
 // GO TO THE CART PAGEEEEEEAAA AAAAA
 const goToCart = document.getElementById('go-to-cart');
 if (goToCart) {

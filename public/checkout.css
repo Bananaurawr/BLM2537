@@ -1,0 +1,187 @@
+:root{
+    --bg: #faf3e7;
+    --card: #fff;
+    --muted: #6f4b3a;
+    --accent: #edb33f;
+    --accent-strong: #f1bc52;
+    --accent-soft: #ffc8b4;
+    --text-strong: #543618;
+    --text-main: #3c2a1e;
+    --radius: 16px;
+}
+
+/* Page layout */
+body {
+    background: linear-gradient(180deg, #fff 0%, var(--bg) 100%);
+    font-family: 'mate', serif;
+    color: var(--text-main);
+    -webkit-font-smoothing: antialiased;
+}
+
+.back-to-cart {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'mate', serif;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background-color: var(--bg-card);
+  color: var(--text-strong);
+  box-shadow: var(--shadow-soft);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 28px auto;
+    padding: 18px;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 24px;
+}
+
+/* Cards */
+.form-card, .summary-card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: var(--radius);
+    box-shadow: 0 8px 24px rgba(84, 54, 24, 0.12);
+}
+
+.form-card h2, .summary-card h2 {
+    margin: 0 0 12px 0;
+    font-size: 1.1rem;
+    font-family: 'pangolin', cursive;
+    color: var(--text-strong);
+}
+
+/* Form layout */
+#payment-form {
+    display: grid;
+    gap: 12px;
+}
+
+.field-label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+    color: var(--text-strong);
+    font-size: 0.9rem;
+}
+
+input[type="text"], input[type="email"], input[type="tel"], select, textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d9cbb5;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(237, 179, 63, 0.25);
+}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+.radio-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.radio-row input {
+    transform: scale(1.1);
+    cursor: pointer;
+    accent-color: var(--accent);
+}
+
+.radio-row label {
+    cursor: pointer;
+    color: var(--text-main);
+}
+
+.small-note {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 8px;
+}
+
+/* Pay button */
+button[type="submit"] {
+    background: linear-gradient(180deg, var(--accent-strong), var(--accent));
+    color: #fff;
+    padding: 11px 16px;
+    border-radius: 999px;
+    border: 0;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 12px;
+    font-family: 'pangolin', cursive;
+    box-shadow: 0 8px 24px rgba(84, 54, 24, 0.12);
+    transition: transform 0.1s ease, background 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    background: linear-gradient(180deg, var(--accent), var(--accent-strong));
+    transform: translateY(-1px);
+}
+
+/* Summary */
+.order-item{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dashed #f0f0f0}
+.order-total{display:flex;justify-content:space-between;padding-top:12px;font-weight:800}
+
+.muted{color:var(--muted)}
+
+/* Responsive */
+@media (max-width:880px){
+    .container{grid-template-columns:1fr;padding:12px}
+    .summary-card{order:2}
+}
+
+@media (max-width:420px){
+    .two-col{grid-template-columns:1fr}
+}
+
+.back-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-left: 12px;
+    color: var(--text-strong);
+    text-decoration: none;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    background-color: var(--card);
+    box-shadow: 0 8px 24px rgba(84, 54, 24, 0.12);
+    transition: background-color 0.2s ease;
+}
+
+.back-home:hover {
+    background-color: var(--accent-soft);
+}
+
+/*
+    =============================
+    PAYMENT COMPLEETE MESSAGE
+    =============================
+*/
+
+.checkout-title {
+    text-align: center;
+    font-family: 'pangolin', cursive;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.confirmation-message {
+    text-align: center;
+    padding: 40px 20px;
+}

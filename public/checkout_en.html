@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="checkout.css">
+        <link rel="icon" href="macarooon-logo-small.png" type="image/x-icon" width="100" height="100">
+        <title>Checkout - Macarooon Catering</title>
+    </head>
+    <body>
+        <header class="title">
+            <img src="macarooon-logo-small.png" alt="Macarooon Logo" class="small-logo" />
+            <a href="cart_en.html" class="back-to-cart">← Back to Cart</a>
+        </header>
+
+        <div class="container">
+            <!-- Order Form -->
+            <div class="form-card">
+                <h2>Billing Information</h2>
+                <form id="payment-form">
+                    <!-- Customer Details -->
+                    <label class="field-label">Full Name</label>
+                    <input type="text" id="full-name" name="full-name" required>
+
+                    <label class="field-label">Email</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label class="field-label">Phone</label>
+                    <input type="tel" id="phone" name="phone" required>
+
+                    <label class="field-label">Address</label>
+                    <input type="text" id="address" name="address" required>
+
+                    <div class="two-col">
+                        <div>
+                            <label class="field-label">City</label>
+                                <select id="city" name="city" required>
+                                    <option value="">Select a city</option>
+                                    <option value="ankara">Ankara</option>
+                                    <option value="istanbul">İstanbul</option>
+                                    <option value="izmir">İzmir</option>
+                                    <option value="bursa">Bursa</option>
+                                    <option value="antalya">Antalya</option>
+                                    <option value="eskisehir">Eskişehir</option>
+                                    <option value="konya">Konya</option>
+                                    <option value="kayseri">Kayseri</option>
+                                    <option value="adana">Adana</option>
+                                    <option value="mersin">Mersin</option>
+                                </select>
+                        </div>
+                        <div>
+                            <label class="field-label">ZIP Code</label>
+                            <input type="text" id="zip" name="zip" required>
+                        </div>
+                    </div>
+
+                    <h2 style="margin-top:20px">Payment Method</h2>
+                    <div class="radio-row">
+                        <input type="radio" id="credit-card" name="payment-method" value="credit-card" checked>
+                        <label for="credit-card">Credit / Debit Card</label>
+                    </div>
+                    <div class="radio-row">
+                        <input type="radio" id="bank-transfer" name="payment-method" value="bank-transfer">
+                        <label for="bank-transfer">Bank Transfer (EFT)</label>
+                    </div>
+                    <div class="radio-row">
+                        <input type="radio" id="mobile-payment" name="payment-method" value="mobile-payment">
+                        <label for="mobile-payment">Mobile Payment</label>
+                    </div>
+
+                    <div id="credit-card-info" style="margin-top:12px">
+                        <label class="field-label">Card Number</label>
+                        <input type="text" id="cc-number" name="cc-number" placeholder="1234 5678 9012 3456" required>
+                        
+                        <div class="two-col">
+                            <div>
+                                <label class="field-label">Expiration</label>
+                                <input type="text" id="cc-expiration" name="cc-expiration" placeholder="MM/YY" required>
+                            </div>
+                            <div>
+                                <label class="field-label">CVV</label>
+                                <input type="text" id="cc-cvv" name="cc-cvv" placeholder="123" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="bank-transfer-info" style="display:none;margin-top:12px">
+                        <label class="field-label">Bank Account Holder Name</label>
+                        <input type="text" id="account-name" name="account-name" placeholder="Full name" required>
+                        <label class="field-label">IBAN</label>
+                        <input type="text" id="iban" name="iban" placeholder="TR960006100519786457841326" required>
+                        <p class="small-note"><strong>Bank Details:</strong> Macarooon Catering | IBAN: TR960006100519786457841326 | Bank: Vakıfbank</p>
+                        <p class="small-note">Please complete the bank transfer within 48 hours. Your order will be processed once payment is confirmed.</p>
+                    </div>
+
+                    <div id="mobile-payment-info" style="display:none;margin-top:12px">
+                        <label class="field-label">Mobile Payment Provider</label>
+                        <select id="mobile-provider" name="mobile-provider" required>
+                            <option value="">Select a provider</option>
+                            <option value="apple-pay">Apple Pay</option>
+                            <option value="google-pay">Google Pay</option>
+                            <option value="param">Param</option>
+                            <option value="ceptetik">Ceptetik</option>
+                        </select>
+                        <label class="field-label">Phone Number</label>
+                        <input type="tel" id="mobile-phone" name="mobile-phone" placeholder="+90 5XX XXX XXXX" required>
+                        <p class="small-note">You will receive a payment link via SMS to complete the transaction.</p>
+                    </div>
+
+                    <button type="submit">Complete Payment</button>
+                </form>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="summary-card">
+                <h2>Order Summary</h2>
+                <div id="cart-summary"></div>
+                <div class="order-item">
+                    <span>Delivery Fee</span>
+                    <span id="delivery-fee">₺0.00</span>
+                </div>
+                <div class="order-total">
+                    <span>Total:</span>
+                    <span id="total-price">₺0.00</span>
+                </div>
+                <p class="small-note" style="margin-top:14px">
+                    Thank you for ordering from Macarooon! Your delicious bakes will arrive fresh soon.
+                </p>
+                <p class="small-note" style="margin-top: 14px;">For <b>deliveries outside of Ankara</b>, you will receive your orders in <b>2-3 business days</b></p>
+            </div>
+        </div>
+
+        <script>
+            // Redirect to menu if cart is empty
+            document.addEventListener("DOMContentLoaded", () => {
+                const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                if (cart.length === 0) {
+                    window.location.href = "menu.html";
+                    return;
+                }
+                loadCartSummary();
+            });
+
+            // Define duls si kota kota kecyil ini
+            const deliveryPrices = {
+                ankara: 35,
+                istanbul: 95,
+                izmir: 60,
+                bursa: 45,
+                antalya: 65,
+                eskisehir: 45,
+                konya: 45,
+                kayseri: 55,
+                adana: 65,
+                mersin: 75
+            };
+
+
+            // Load and display cart summary
+            function loadCartSummary() {
+                const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                const summaryContainer = document.getElementById("cart-summary");
+                const totalPriceEl = document.getElementById("total-price");
+                const deliveryFeeEl = document.getElementById("delivery-fee");
+                const citySelect = document.getElementById("city");
+                
+                let summaryHTML = "";
+                let subtotal = 0;
+
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    subtotal += itemTotal;
+                    summaryHTML += `
+                        <div class="order-item">
+                            <span>${item.name} × ${item.quantity}</span>
+                            <span>₺${itemTotal.toFixed(2)}</span>
+                        </div>
+                    `;
+                });
+
+                summaryContainer.innerHTML = summaryHTML;
+
+                // Pilih kota pake delivery fee
+                const selectedCity = citySelect.value;
+                const deliveryFee = deliveryPrices[selectedCity] || 0;
+
+                deliveryFeeEl.textContent = "₺" + deliveryFee.toFixed(2);
+                totalPriceEl.textContent = "₺" + (subtotal + deliveryFee).toFixed(2);
+            }
+
+            // Payment method handling
+            const paymentMethodRadios = document.querySelectorAll('input[name="payment-method"]');
+            const creditCardInfo = document.getElementById('credit-card-info');
+            const bankTransferInfo = document.getElementById('bank-transfer-info');
+            const mobilePaymentInfo = document.getElementById('mobile-payment-info');
+
+            function updatePaymentDisplay() {
+                const selectedMethod = document.querySelector('input[name="payment-method"]:checked').value;
+                
+                creditCardInfo.style.display = 'none';
+                bankTransferInfo.style.display = 'none';
+                mobilePaymentInfo.style.display = 'none';
+
+                if (selectedMethod === 'credit-card') {
+                    creditCardInfo.style.display = 'block';
+                } else if (selectedMethod === 'bank-transfer') {
+                    bankTransferInfo.style.display = 'block';
+                } else if (selectedMethod === 'mobile-payment') {
+                    mobilePaymentInfo.style.display = 'block';
+                }
+            }
+
+            paymentMethodRadios.forEach(radio => {
+                radio.addEventListener('change', updatePaymentDisplay);
+            });
+
+            document.getElementById("city").addEventListener("change", loadCartSummary);
+        </script>
+    </body>
+</html>

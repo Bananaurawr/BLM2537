@@ -4,6 +4,27 @@
   <meta charset="UTF-8">
   <title>Your Cart</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .checkout-btn {
+      background: linear-gradient(180deg, #f1bc52, #edb33f);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 999px;
+      border: none;
+      font-weight: 700;
+      font-family: 'pangolin', cursive;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(84, 54, 24, 0.12);
+      transition: transform 0.1s ease, background 0.2s ease;
+      margin-top: 16px;
+    }
+    
+    .checkout-btn:hover {
+      background: linear-gradient(180deg, #edb33f, #f1bc52);
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
 <body>
 <header class="title">
@@ -54,7 +75,7 @@
       html += `
         <hr>
         <h2>Total: ₺${cart.reduce((sum, i) => sum + i.price * i.quantity, 0)}</h2>
-        <button onclick="checkout()">Checkout</button>
+        <button class="checkout-btn" onclick="window.location.href='checkout_en.html'">Proceed to Checkout</button>
       `;
 
       container.innerHTML = html;
@@ -69,10 +90,6 @@
     cart.splice(i, 1);
     localStorage.setItem("cart", JSON.stringify(cart));
     renderCart();
-  }
-
-  function checkout() {
-    alert("Checkout not implemented yet 😂");
   }
 
   function increaseQty(i) {
