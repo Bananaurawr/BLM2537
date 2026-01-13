@@ -108,8 +108,7 @@ if (goToCart) {
 });
 }
 
-// Function doesnt work yet so im working on it
-// THis is supossed to count how many items are in the cart and display in menu
+// Updte badge nya
 (function() {
   const CART_KEYS = ['macaroons_cart_v1', 'cart', 'cart_items'];
 

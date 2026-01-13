@@ -74,7 +74,7 @@
 
       html += `
         <hr>
-        <h2>Total: ₺${cart.reduce((sum, i) => sum + i.price * i.quantity, 0)}</h2>
+        <h2 class = "total">Total: ₺${cart.reduce((sum, i) => sum + i.price * i.quantity, 0)}</h2>
         <button class="checkout-btn" onclick="window.location.href='checkout_en.html'">Proceed to Checkout</button>
       `;
 

@@ -1346,6 +1346,11 @@ button {
   box-shadow: var(--shadow-soft);
 }
 
+.total {
+  margin-top: 1%;
+  font-size: 1.2rem;
+}
+
 .cart-item h3 {
   margin-bottom: 0.3rem;
   font-size: 1rem;
@@ -1361,16 +1366,15 @@ button {
   margin-top: 0.3rem;
   padding: 0.3rem 0.7rem;
   border-radius: 14px;
-  background: var(--accent);
-  color: var(--text-strong);
+  background-color: var(--bg-main);
+  color: var(--text-main);
   font-size: 0.85rem;
   cursor: pointer;
   border: 1px solid var(--accent-strong);
-  transition: background 0.2s ease;
 }
 
 .cart-item button:hover {
-  background: var(--accent-strong);
+  background-color: #FCEACA;
 }
 
 .cart-total {
@@ -1387,11 +1391,11 @@ button {
   margin-top: 1rem;
   padding: 0.6rem 1.4rem;
   border-radius: 18px;
+  font-family: 'mate', serif;
   background: var(--accent-strong);
   color: #fff;
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   border: none;
-  transition: 0.2s;
 }
 
 .checkout-btn:hover {
@@ -1404,15 +1408,9 @@ button {
   gap: 8px;
 }
 
-.qty-btn {
-  width: 28px;
-  height: 28px;
-  border-radius: 6px;
-  background: var(--accent);
-  border: none;
-  color: white;
-  font-size: 1.2rem;
-  cursor: pointer;
+.qty-btn:hover {
+  background-color: var(--accent-soft);
+  border-color: var(--accent);
 }
 
 .item-subtotal {

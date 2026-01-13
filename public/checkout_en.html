@@ -16,7 +16,7 @@
             <!-- Order Form -->
             <div class="form-card">
                 <h2>Billing Information</h2>
-                <form id="payment-form">
+                <form id="payment-form" action="complete_payment.html" method="get">
                     <!-- Customer Details -->
                     <label class="field-label">Full Name</label>
                     <input type="text" id="full-name" name="full-name" required>
@@ -85,16 +85,16 @@
 
                     <div id="bank-transfer-info" style="display:none;margin-top:12px">
                         <label class="field-label">Bank Account Holder Name</label>
-                        <input type="text" id="account-name" name="account-name" placeholder="Full name" required>
+                        <input type="text" id="account-name" name="account-name" placeholder="Full name">
                         <label class="field-label">IBAN</label>
-                        <input type="text" id="iban" name="iban" placeholder="TR960006100519786457841326" required>
+                        <input type="text" id="iban" name="iban" placeholder="TR960006100519786457841326">
                         <p class="small-note"><strong>Bank Details:</strong> Macarooon Catering | IBAN: TR960006100519786457841326 | Bank: Vakıfbank</p>
                         <p class="small-note">Please complete the bank transfer within 48 hours. Your order will be processed once payment is confirmed.</p>
                     </div>
 
                     <div id="mobile-payment-info" style="display:none;margin-top:12px">
                         <label class="field-label">Mobile Payment Provider</label>
-                        <select id="mobile-provider" name="mobile-provider" required>
+                        <select id="mobile-provider" name="mobile-provider">
                             <option value="">Select a provider</option>
                             <option value="apple-pay">Apple Pay</option>
                             <option value="google-pay">Google Pay</option>
@@ -102,11 +102,11 @@
                             <option value="ceptetik">Ceptetik</option>
                         </select>
                         <label class="field-label">Phone Number</label>
-                        <input type="tel" id="mobile-phone" name="mobile-phone" placeholder="+90 5XX XXX XXXX" required>
+                        <input type="tel" id="mobile-phone" name="mobile-phone" placeholder="+90 5XX XXX XXXX">
                         <p class="small-note">You will receive a payment link via SMS to complete the transaction.</p>
                     </div>
 
-                    <button type="submit">Complete Payment</button>
+                    <button type="submit" >Complete Payment</button>
                 </form>
             </div>
 
@@ -153,7 +153,6 @@
                 adana: 65,
                 mersin: 75
             };
-
 
             // Load and display cart summary
             function loadCartSummary() {
@@ -211,6 +210,16 @@
 
             paymentMethodRadios.forEach(radio => {
                 radio.addEventListener('change', updatePaymentDisplay);
+            });
+
+            document.addEventListener('DOMContentLoaded', () => {
+                document.getElementById('payment-form').addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    // Clearn the cart and redirect to confirmation
+                    localStorage.removeItem("cart");
+                    window.location.href = 'complete_payment.html';
+                });
             });
 
             document.getElementById("city").addEventListener("change", loadCartSummary);
